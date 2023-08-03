@@ -68,7 +68,7 @@ Service monitoring:
 * experiments tracking: [MLFlow Experiments](http://0.0.0.0:5000/#/experiments/0?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All%20Runs&selectedColumns=attributes.%60Source%60,attributes.%60Models%60,attributes.%60Dataset%60&compareRunCharts=);
 * models tracking: [MLFlow Models](http://0.0.0.0:5000/#/models).
 
-Use the Notebook [test_service.ipynb](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/experimental_scripts/test_service.ipynb) as an example of how to use the prediction service API. 
+Use the Notebook [test_service.ipynb](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/experimental_scripts/test_service.ipynb) as an example of how to use the prediction service API (default address http://0.0.0.0:8080/predict). 
 
 ## Development guide
 The application is containerized with Docker, therefore Docker Engine needs to be installed. 
@@ -121,16 +121,16 @@ prefect agent start --pool default-agent-pool --work-queue default &
 ## Monitor the pipeline via dashboards
 
 ### Experiment tracking
-Use this dashboard to inspect all the experiments and the training models.
+Use this dashboard to inspect all the experiments and the training models (default address http://0.0.0.0:5000).
 ![MLFlow Experiments](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/dashboards/mlflow_experiments.png)
 ### Model tracking
-Use this dashboard to inspect the registered models.
+Use this dashboard to inspect the registered models (default address http://0.0.0.0:5000).
 ![MLFlow models](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/dashboards/mlflow_models.png)
 ### Prefect dashboard
-Use this dashboard to inspect the workflow.
+Use this dashboard to inspect the workflow (default address http://0.0.0.0:4200).
 ![Prefect dashboard](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/dashboards/prefect_dashboard.png)
 ### Jupyter Notebook
-Use this for development and experimenting with new code.
+Use this for development and experimenting with new code (default address http://0.0.0.0:8888).
 ![Jupyter Notebook](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/dashboards/jupyter_notebook.png)
 ## Acknowledgements
 As my dear wife is expecting and the due date is around the corner, I have made quite some sacrifices to follow this class and finish this project before the big B-Day. 
