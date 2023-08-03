@@ -22,15 +22,19 @@ This dataset has been selected for 3 main reasons:
 * it is almost guaranteed to drift over time (prices due to inflation, car properties due to trends and technological advances);
 * it is not the most popular dataset (sorry :D ).
 
+The raw dataset can also be found in this repository in [cars.xlsx](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/data/raw/cars.xlsx).
+
+The Notebook [EDA_and_create_yearly_dataset.ipynb](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/experimental_scripts/EDA_and_create_yearly_dataset.ipynb) is used for splitting this dataset into chunks based on the year.
+
 ## Background
-The pipeline current uses a local "out-dated" dataset. Meaning that the data update is simulated. There are multiple files which contain yearly data in the **data/yearly** folder. The data update pipeline simply copies periodically one of these files into the **data/available** folder (this folder needs to be cleaned, otherwise it will no longer be updated when all the yearly data is copied). This is the folder that the training pipeline is using. If the current model has been trained on older data, it is expected that it's performance drops. Therefore, the training of a model happens if at least of the 3 conditions is met:
+The pipeline current uses a local "out-dated" dataset. Meaning that the data update is simulated. There are multiple files which contain yearly data in the [yearly](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/tree/master/data/yearly) folder. The data update pipeline simply copies periodically one of these files into the [available](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/tree/master/data/available) folder (this folder needs to be cleaned, otherwise it will no longer be updated when all the yearly data is copied). This is the folder that the [training_pipeline.py](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/flows/training_pipeline.py) is using. If the current model has been trained on older data, it is expected that its performance drops. Therefore, the training of a model happens if at least of the 3 conditions is met:
 * there is no model in the model registry;
 * the latest model in the registry shows a large RMSE on new data;
 * the new data has columns with drift compared to the dataset used for training of the current model.
 
-In order to actually use this pipeline with real online datasets, one would need to adapt the code in **flows/ETL_pipeline.py** to handle the new data source. 
+In order to actually use this pipeline with real online datasets, one would need to adapt the code in [ETL_pipeline.py](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/flows/ETL_pipeline.py) to handle the new data source. 
 
-The code in **flows/create_prefect_deployments.py** handles (as its name suggests) the creation of deployments using the Prefect framework. Modify this file to change the frequency of dataset update or model retraining. **Improvement point**: the model retraining could be triggered by the data update. Currently, these 2 pipelines are not synchronized.
+The code in [create_prefect_deployments.py](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/flows/create_prefect_deployments.py) handles (as its name suggests) the creation of deployments using the Prefect framework. Modify this file to change the frequency of dataset update or model retraining. **Improvement point**: the model retraining could be triggered by the data update. Currently, these 2 pipelines are not synchronized.
 
 
 ## Deployment guide
@@ -64,7 +68,7 @@ Service monitoring:
 * experiments tracking: [MLFlow Experiments](http://0.0.0.0:5000/#/experiments/0?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All%20Runs&selectedColumns=attributes.%60Source%60,attributes.%60Models%60,attributes.%60Dataset%60&compareRunCharts=);
 * models tracking: [MLFlow Models](http://0.0.0.0:5000/#/models).
 
-Use the **experimental_scripts/test_service.ipynb** as an example of how to use the prediction service API. 
+Use the Notebook [test_service.ipynb](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/experimental_scripts/test_service.ipynb) as an example of how to use the prediction service API. 
 
 ## Development guide
 The application is containerized with Docker, therefore Docker Engine needs to be installed. 
@@ -130,6 +134,8 @@ Use this for development and experimenting with new code.
 ![Jupyter Notebook](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/dashboards/jupyter_notebook.png)
 ## Acknowledgements
 As my dear wife is expecting and the due date is around the corner, I have made quite some sacrifices to follow this class and finish this project before the big B-Day. 
+
 I am thankful for my wife's understanding of my slacking in household preparations, but I will make it up up to her as soon as I submit the project!
-Also, thank you to the MLOps Zoomcamp instructors and organizers!
+
+Also, thank you to the MLOps Zoomcamp instructors and organizers for this comprehensive and free class!
 
