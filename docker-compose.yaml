@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    image: mlops_car_price
+    container_name: mlops_car_price
+    restart: always
+    #command: sh -c "yarn install && yarn start"
+    entrypoint: /app/entrypoint.sh
+    #network_mode: host
+    ports:
+      - "5000:5000"
+      - "8888:8888"
+      - "8080:8080"
+      - "4200:4200"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      ENVIRONMENT_VARIABLE: environment_variable_value
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
