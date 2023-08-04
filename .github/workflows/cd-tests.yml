@@ -11,17 +11,17 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Set up Python 3.9
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.9
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
-        - name: Install dependencies
-          working-directory: '.'
-          run: pip install pytest pandas scikit-learn numpy
+      - name: Install dependencies
+        working-directory: '.'
+        run: pip install pytest pandas scikit-learn numpy
 
-        - name: Run Unit tests
-          working-directory: '.'
-          run: pytest tests/unit/
+      - name: Run Unit tests
+        working-directory: '.'
+        run: pytest tests/unit/
