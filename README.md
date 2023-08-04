@@ -15,7 +15,7 @@ This project aims at implementing an automated pipeline with the following featu
 The project's focus is on the MLOps practices and minimum time has been spent on the actual model training parts. 
 
 ## Problem description
-This goal of the project (apart from learning MLOps practices and tools) is to create a model for predicting the price in EUR of a car given a set of features: horsepower, number of seats, number of doors, fuel consumption, maximum speed and acceleration time to 100km/h.
+The machine learning goal of the project (apart from learning MLOps practices and tools) is to create a model for predicting the price in EUR of a car given a set of features: horsepower, number of seats, number of doors, fuel consumption, maximum speed and acceleration time to 100km/h.
 
 ## Dataset
 The project uses the [European car prices dataset](https://sites.google.com/site/frankverbo/data-and-software/data-set-on-the-european-car-market?authuser=0) by [Frank Verboven](https://sites.google.com/site/frankverbo) from K.U. Leuven (Belgium).
