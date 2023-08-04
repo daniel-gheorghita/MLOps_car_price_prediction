@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: '.'
-        run: pip install pytest pandas scikit-learn numpy
+        run: pip install pytest pandas scikit-learn matplotlib numpy
 
       - name: Run Unit tests
         working-directory: '.'
