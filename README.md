@@ -73,7 +73,7 @@ Service monitoring:
 
 Use the Notebook [test_service.ipynb](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/experimental_scripts/test_service.ipynb) as an example of how to use the prediction service API (default address http://0.0.0.0:8080/predict). 
 
-## Development guide
+## Development guide with Docker
 The application is containerized with Docker, therefore Docker Engine needs to be installed. 
 Clone this repository:
 ```
@@ -108,6 +108,13 @@ Development via Notebook:
 * access the [Notebook server](http://0.0.0.0:8888).
 
 Or you can also connect via VSCode to the Docker container (if you install the required add-ons like Docker and SSH). 
+
+## Development guide without Docker
+In case you wish to work less containerized (not recommended), you can set up the development environment using [Conda](https://docs.conda.io/en/latest/) (install Conda first):
+```
+conda env create --file=environment.yml
+```
+Please check the [entrypoint.sh](https://github.com/daniel-gheorghita/MLOps_car_price_prediction/blob/master/entrypoint.sh) file for starting up the helping servers (Prefect, MLFlow, Flask).
 
 ## Troubleshoot
 
